@@ -3,7 +3,10 @@ const port = 5000
 const { response } = require('express')
 const express = require('express')
 const db = require('./database')
-const app = express()
+const app = express() 
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: true}))
 
 app.get('/produtos', (req, res, next) => {
     res.send(db.getAllProducts())
